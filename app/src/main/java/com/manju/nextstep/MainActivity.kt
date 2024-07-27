@@ -1,17 +1,28 @@
 package com.manju.nextstep
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.manju.nextstep.databinding.ActivityMainBinding
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnItemClickListener{
     lateinit var binding: ActivityMainBinding
+    private lateinit var itemViewModel: ItemViewModel
+    private lateinit var adapter: ItemAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.txt1.setText("Hello Manju")
+        adapter =ItemAdapter(listOf(),this)
+        binding.list.layoutManager=LinearLayoutManager(this)
+        binding.list.adapter=adapter
+        itemViewModel=ViewModelProvider(this).get(ItemViewModel::class.java)
+        itemViewModel.items.observe(this, Observer {
+            adapter.updateItems(it)
+        })
+    }
+    override fun onItemClick(item: Item) {
+       Toast.makeText(this,"${item.place}",Toast.LENGTH_SHORT).show()
     }
 }
