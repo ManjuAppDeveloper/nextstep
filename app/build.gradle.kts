@@ -7,6 +7,9 @@ android {
     namespace = "com.manju.nextstep"
     compileSdk = 34
 
+buildFeatures{
+viewBinding=true
+}
     defaultConfig {
         applicationId = "com.manju.nextstep"
         minSdk = 24
