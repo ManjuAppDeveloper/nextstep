@@ -9,8 +9,8 @@ class QuizViewModel : ViewModel() {
     private val muteData=MutableLiveData<QuizResponse?>()
     val liveData:LiveData<QuizResponse?> = muteData
     fun fetchData(){
-        repository.getQuizData { quizResponse ->
-            muteData.postValue(quizResponse)
+        repository.getQuizData {
+            quizResponse -> muteData.postValue(quizResponse)
         }
     }
 }

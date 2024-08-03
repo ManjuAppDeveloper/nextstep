@@ -7,19 +7,17 @@ import com.manju.nextstep.R
 
 class QuizActivity : AppCompatActivity() {
     private val quizViewModel: QuizViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-
-        quizViewModel.liveData.observe(this, Observer { quizResponse ->
+        quizViewModel.liveData.observe(this, Observer{ quizResponse ->
             // Handle the quiz data
             quizResponse?.let {
                 println(it)
             }
         })
-
         // Fetch quiz data
         quizViewModel.fetchData()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container,QuizFragment()).commit()
     }
 }
