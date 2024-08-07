@@ -4,9 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 class ItemViewModel:ViewModel() {
     private val itemRespository=ItemRespository()
-    private val _items=MutableLiveData<List<Item>>()
-    val items:LiveData<List<Item>> get()=_items
+    private val itemsMuted=MutableLiveData<List<Item>>()
+    val itemsLive:LiveData<List<Item>> get()=itemsMuted
     init{
-        _items.value=itemRespository.getItems()
+        itemsMuted.value=itemRespository.getItems()
     }
 }

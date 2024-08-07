@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "NextStep"
 include(":app")
+include(":app:lib")

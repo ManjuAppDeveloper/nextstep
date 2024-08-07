@@ -15,10 +15,10 @@ class MainActivity : AppCompatActivity(), OnItemClickListener{
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         adapter =ItemAdapter(listOf(),this)
-        binding.list.layoutManager=LinearLayoutManager(this)
-        binding.list.adapter=adapter
+        binding.recyclerview.layoutManager=LinearLayoutManager(this)
+        binding.recyclerview.adapter=adapter
         itemViewModel=ViewModelProvider(this).get(ItemViewModel::class.java)
-        itemViewModel.items.observe(this, Observer {
+        itemViewModel.itemsLive.observe(this, Observer {
             adapter.updateItems(it)
         })
     }
