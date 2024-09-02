@@ -25,9 +25,7 @@ class SignInActivity : AppCompatActivity() {
         retrieveUserData()
         binding.edtUserName.setText(username)
         binding.edtPassword.setText(password)
-
     }
-
     private fun retrieveUserData() {
          username = sharedPreferences.getString("username", "")!!
          password = sharedPreferences.getString("password", "")!!

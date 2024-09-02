@@ -4,7 +4,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.manju.nextstep.R
-
 class QuizActivity : AppCompatActivity() {
     private val quizViewModel: QuizViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {

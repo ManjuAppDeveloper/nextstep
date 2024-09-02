@@ -15,26 +15,32 @@
         android:theme="@style/Theme.NextStep"
         tools:targetApi="31">
         <activity
-            android:name=".UserManage.SignInActivity"
+            android:name=".Cam.PhotoActivity"
             android:exported="false" />
+        <!-- Main Launch Activity -->
         <activity
-            android:name=".UserManage.SignUpActivity"
-            android:exported="true" >
+            android:name=".todo.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- Other Activities -->
+        <activity
+            android:name=".UserManage.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserManage.SignUpActivity"
+            android:exported="false" />
         <activity
             android:name=".intents.ReceiverActivity"
             android:exported="false" />
         <activity
-            android:name=".intents.SenderActivity"
-            android:exported="false">
-        </activity>
-        <activity
             android:name=".Quiz.QuizActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
             android:exported="false" />
     </application>
 

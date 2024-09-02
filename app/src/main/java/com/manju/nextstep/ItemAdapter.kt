@@ -20,7 +20,6 @@ class ItemAdapter (private var items:List<Item>, private val listener: OnItemCli
         items=newItems
         notifyDataSetChanged()
     }
-
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),View.OnClickListener
     {
         private val textid: TextView = itemView.findViewById(R.id.txt_id)
