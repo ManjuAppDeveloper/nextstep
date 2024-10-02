@@ -1,16 +1,21 @@
 package com.manju.nextstep.Quiz
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 @Parcelize
 data class QuizResponse(
-    val Testarray: List<Question>
+    @SerializedName("Testarray")
+    val responseArray: List<Question> = emptyList() // Using Testarray as the key
 ) : Parcelable
+
 @Parcelize
 data class Question(
-    val Question1: String,
+    @SerializedName("Question1")
+    val question1: String,
     val options: Options,
     val answer: String
 ) : Parcelable
+
 @Parcelize
 data class Options(
     val option1: String,
@@ -18,6 +23,3 @@ data class Options(
     val option3: String,
     val option4: String
 ) : Parcelable
-
-
-

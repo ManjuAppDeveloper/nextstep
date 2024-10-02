@@ -8,6 +8,7 @@ class QuizViewModel : ViewModel() {
     private val repository = QuizRepository()
     private val mutableData = MutableLiveData<QuizResponse?>()
     val liveData: LiveData<QuizResponse?> = mutableData
+
     fun fetchData() {
         viewModelScope.launch {
             val quizResponse = repository.getQuizData()
