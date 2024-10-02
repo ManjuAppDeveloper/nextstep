@@ -4,19 +4,23 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.manju.nextstep.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 class QuizActivity : AppCompatActivity() {
     private val quizViewModel: QuizViewModel by viewModels()
+    private lateinit var quizAdapter: QuizAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-        quizViewModel.liveData.observe(this, Observer{ quizResponse ->
-            // Handle the quiz data
-            quizResponse?.let {
-                println(it)
-            }
-        })
+        // Initialize RecyclerView
+        val recyclerViewQuiz = findViewById<RecyclerView>(R.id.recyclerViewQuiz)
+        recyclerViewQuiz.layoutManager = LinearLayoutManager(this)
         // Fetch quiz data
         quizViewModel.fetchData()
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container,QuizFragment()).commit()
+        // Observe LiveData from ViewModel
+        quizViewModel.liveData.observe(this, Observer { qu -> qu?.let{
+            quizAdapter=QuizAdapter(it.Testarray)
+            recyclerViewQuiz.adapter=quizAdapter
+        } })
     }
 }

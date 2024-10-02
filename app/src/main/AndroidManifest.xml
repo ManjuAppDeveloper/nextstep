@@ -15,18 +15,17 @@
         android:theme="@style/Theme.NextStep"
         tools:targetApi="31">
         <activity
-            android:name=".Cam.PhotoActivity"
-            android:exported="false" />
-        <!-- Main Launch Activity -->
-        <activity
-            android:name=".todo.SplashActivity"
+            android:name=".Quiz.QuizActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Other Activities -->
+        </activity>
+        <activity
+            android:name=".Cam.PhotoActivity"
+            android:exported="false" /> <!-- Main Launch Activity -->
         <activity
             android:name=".UserManage.SignInActivity"
             android:exported="false" />
@@ -36,9 +35,6 @@
         <activity
             android:name=".intents.ReceiverActivity"
             android:exported="false" />
-        <activity
-            android:name=".Quiz.QuizActivity"
-            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
