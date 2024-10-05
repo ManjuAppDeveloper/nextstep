@@ -15,6 +15,10 @@
         android:theme="@style/Theme.NextStep"
         tools:targetApi="31">
         <activity
+            android:name=".ConstraintScrollActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".Quiz.QuizActivity"
             android:exported="true">
             <intent-filter>
