@@ -15,11 +15,7 @@
         android:theme="@style/Theme.NextStep"
         tools:targetApi="31">
         <activity
-            android:name=".ConstraintScrollActivity"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".Quiz.QuizActivity"
+            android:name=".SingleActivity.SingleActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,11 +24,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Cam.PhotoActivity"
-            android:exported="false" /> <!-- Main Launch Activity -->
+            android:name=".ConstraintScrollActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".UserManage.SignInActivity"
             android:exported="false" />
+        <activity
+            android:name=".Cam.PhotoActivity"
+            android:exported="false" /> <!-- Main Launch Activity -->
         <activity
             android:name=".UserManage.SignUpActivity"
             android:exported="false" />
